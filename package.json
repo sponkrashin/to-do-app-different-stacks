@@ -1,7 +1,7 @@
 {
   "name": "to-do-app-mean-stack",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "devDependencies": {
     "husky": "^9.0.11"
