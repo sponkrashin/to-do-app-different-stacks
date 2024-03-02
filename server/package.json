@@ -9,6 +9,12 @@
     "start:dev": "set DEBUG=to-do-server:* && nodemon src/main.ts",
     "start": "node dist/main.js"
   },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "eslint --max-warnings 0"
+    ]
+  },
   "nodemonConfig": {
     "watch": [
       "src"
@@ -34,7 +40,9 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-unused-imports": "^3.1.0",
+    "lint-staged": "^15.2.2",
     "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
