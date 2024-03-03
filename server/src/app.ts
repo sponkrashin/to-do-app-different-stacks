@@ -1,7 +1,7 @@
 import cookieParserMiddleware from 'cookie-parser';
 import express from 'express';
 import loggerMiddleware from 'morgan';
-import todoRouter from './routes/todoRoute';
+import todoRouter from './routes/todosRoute';
 
 const app = express();
 
