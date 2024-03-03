@@ -2,12 +2,15 @@ import * as http from 'http';
 import createLogger from 'debug';
 import * as dotenv from 'dotenv';
 import app from './app';
+import { init as initDatabaseClient } from './repositories/databaseClient';
 
 dotenv.config();
 
 const logger = createLogger('to-do-server:server');
 
-const port = process.env.PORT || 3000;
+initDatabaseClient(process.env.DB_CONNECTION_STRING ?? '', process.env.DB_NAME ?? '');
+
+const port = process.env.PORT ?? 3000;
 app.set('port', port);
 
 const server = http.createServer(app);
