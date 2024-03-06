@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-todos-list',
   standalone: true,
   templateUrl: './todos-list.component.html',
-  styleUrl: './todos-list.component.sass',
+  styleUrl: './todos-list.component.scss',
 })
 export class TodosListComponent {}
