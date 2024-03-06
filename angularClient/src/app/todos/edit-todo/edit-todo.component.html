@@ -1,0 +1,18 @@
+<h3>{{ isNew() ? 'Add To Do' : 'Edit To Do' }}</h3>
+<div>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div>
+      <label for="title">To Do title: </label>
+      <input type="text" name="title" formControlName="title" />
+    </div>
+    <br />
+    <div>
+      <label for="tags">To Do tags (comma-separated): </label>
+      <input type="text" name="tags" formControlName="tags" />
+    </div>
+    <br />
+    <div>
+      <button type="submit" [disabled]="form.invalid">Save</button>
+    </div>
+  </form>
+</div>
