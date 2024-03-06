@@ -1,1 +1,10 @@
-<p>todos-list works!</p>
+<button (click)="addTodo()">Add</button>
+<hr />
+@for (todo of todos$ | async; track todo.id) {
+  <div>
+    <app-todo [todo]="todo" (delete)="reloadData()" />
+    @if (!$last) {
+      <hr />
+    }
+  </div>
+}
