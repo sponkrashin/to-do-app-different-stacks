@@ -86,6 +86,8 @@ module.exports = {
           },
         ],
         'unused-imports/no-unused-imports': 'error',
+        'import/no-unresolved': 'off',
+        'lines-between-class-members': 'off',
         '@angular-eslint/directive-selector': [
           'error',
           {
@@ -102,6 +104,7 @@ module.exports = {
             style: 'kebab-case',
           },
         ],
+        '@angular-eslint/no-output-rename': 'off',
       },
       reportUnusedDisableDirectives: true,
     },

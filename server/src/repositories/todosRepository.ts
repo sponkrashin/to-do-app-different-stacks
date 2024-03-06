@@ -1,5 +1,5 @@
 import { Document, ObjectId } from 'mongodb';
-import { connect } from './databaseClient';
+import { DatabaseClient } from './databaseClient';
 
 export interface TodoDocument extends Document {
   id: string;
@@ -8,7 +8,7 @@ export interface TodoDocument extends Document {
 }
 
 export async function getAll(): Promise<TodoDocument[]> {
-  const client = connect();
+  const client = new DatabaseClient();
 
   const result = await client.execute(async (database) => {
     const todosCollection = database.collection('todos');
@@ -28,7 +28,7 @@ export async function getAll(): Promise<TodoDocument[]> {
 }
 
 export async function existsById(id: string): Promise<boolean> {
-  const client = connect();
+  const client = new DatabaseClient();
 
   const result = await client.execute(async (database) => {
     try {
@@ -44,7 +44,7 @@ export async function existsById(id: string): Promise<boolean> {
 }
 
 export async function getById(id: string): Promise<TodoDocument | null> {
-  const client = connect();
+  const client = new DatabaseClient();
 
   const result = await client.execute(async (database) => {
     try {
@@ -64,7 +64,7 @@ export async function getById(id: string): Promise<TodoDocument | null> {
 }
 
 export async function add(document: TodoDocument): Promise<string> {
-  const client = connect();
+  const client = new DatabaseClient();
 
   const result = await client.execute(async (database) => {
     const todosCollection = database.collection('todos');
@@ -76,7 +76,7 @@ export async function add(document: TodoDocument): Promise<string> {
 }
 
 export async function update(document: TodoDocument): Promise<TodoDocument | null> {
-  const client = connect();
+  const client = new DatabaseClient();
 
   await client.execute(async (database) => {
     const todosCollection = database.collection('todos');
@@ -90,7 +90,7 @@ export async function update(document: TodoDocument): Promise<TodoDocument | nul
 }
 
 export async function remove(id: string): Promise<void> {
-  const client = connect();
+  const client = new DatabaseClient();
 
   await client.execute(async (database) => {
     const todosCollection = database.collection('todos');

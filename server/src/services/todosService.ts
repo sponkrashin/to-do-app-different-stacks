@@ -19,7 +19,7 @@ export function existsById(id: string): Promise<boolean> {
 }
 
 export async function add(todo: Todo): Promise<Todo | null> {
-  const tags = !todo.tags?.length ? todo.tags : null;
+  const tags = todo.tags?.length ? todo.tags : null;
   const document = { title: todo.title, tags } as todosRepository.TodoDocument;
 
   const newId = await todosRepository.add(document);
@@ -29,8 +29,8 @@ export async function add(todo: Todo): Promise<Todo | null> {
 }
 
 export async function update(id: string, todo: Todo): Promise<Todo | null> {
-  const tags = !todo.tags?.length ? todo.tags : null;
-  const document = { title: todo.title, tags } as todosRepository.TodoDocument;
+  const tags = todo.tags?.length ? todo.tags : null;
+  const document = { id, title: todo.title, tags } as todosRepository.TodoDocument;
 
   await todosRepository.update(document);
 
