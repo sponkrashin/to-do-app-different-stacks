@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  database:
+    image: "mongodb/mongodb-community-server:latest"
+    container_name: database
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./database/init.js:/docker-entrypoint-initdb.d/init.js:ro
+
+  server:
+    build: server/
+    restart: always
+    expose:
+      - 3000
+    ports:
+      - 8081:3000
+    depends_on:
+      - database
+    environment:
+      PORT: 3000
+      DB_CONNECTION_STRING: mongodb://database:27017
+      DB_NAME: ToDo
+
+  angular-client:
+    build:
+      context: angularClient/
+      args:
+        API_URL: http://localhost:8081
+    restart: always
+    ports:
+      - 8082:80
+    depends_on:
+      - server
