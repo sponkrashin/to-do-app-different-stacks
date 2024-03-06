@@ -1,0 +1,16 @@
+@if (todo) {
+  <div class="container">
+    <div class="content">
+      <div>{{ todo.title }}</div>
+      <div class="tags">
+        @for (tag of todo.tags; track $index) {
+          <span class="tag">{{ tag }}</span>
+        }
+      </div>
+    </div>
+    <div class="actions">
+      <button (click)="editTodo(todo)">Edit</button>
+      <button (click)="deleteTodo(todo)">Delete</button>
+    </div>
+  </div>
+}

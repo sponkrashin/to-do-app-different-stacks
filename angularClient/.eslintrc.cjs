@@ -104,6 +104,7 @@ module.exports = {
             style: 'kebab-case',
           },
         ],
+        '@angular-eslint/no-output-rename': 'off',
       },
       reportUnusedDisableDirectives: true,
     },
