@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
-import { TodosListComponent } from './todos-list/todos-list.component';
 
 export const routes: Routes = [
   {
     path: 'todos',
-    component: TodosListComponent,
+    loadChildren: () => import('./todos/todos-routes').then((x) => x.routes),
   },
   {
     path: '**',
