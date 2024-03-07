@@ -1,2 +1,2 @@
-# to-do-app-mean-stack
-Simple To Do app using MEAN stack
+# to-do-app-different-stacks
+Implementation of Simple To Do app (API + frontend) using different stacks
